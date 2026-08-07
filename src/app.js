@@ -127,50 +127,7 @@ class CaseViewer {
       <div class="case-content">
         ${cleanHtml}
       </div>
-      <div class="startup-ideas">
-        <h2>💡 Startup Ideas</h2>
-        <div class="ideas-content" id="ideas-${caseData.id}">
-          <div class="loading">Generating ideas...</div>
-        </div>
-      </div>
     `;
-
-    // Auto-generate ideas
-    this.generateIdeas(caseData.id);
-  }
-
-  async generateIdeas(caseId) {
-    const caseData = this.cases.find(c => c.id === caseId);
-    if (!caseData) return;
-
-    const container = document.getElementById(`ideas-${caseId}`);
-    container.innerHTML = '<div class="loading">Generating ideas...</div>';
-
-    try {
-      const response = await fetch('/api/ideas', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          caseTitle: caseData.title,
-          caseContent: caseData.content
-        })
-      });
-
-      const data = await response.json();
-      const ideasText = data.response || data.result?.response || 'No ideas generated';
-      
-      // Convert markdown-like response to HTML
-      const formattedIdeas = ideasText
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\n/g, '<br>');
-      
-      container.innerHTML = `<div class="ideas-text">${formattedIdeas}</div>`;
-    } catch (error) {
-      container.innerHTML = `
-        <div class="ideas-error">Failed to generate ideas. Make sure you're running on Cloudflare Pages with AI binding.</div>
-        <button class="generate-btn" onclick="window.caseViewer.generateIdeas('${caseId}')">Retry</button>
-      `;
-    }
   }
 
   filterByTags() {
