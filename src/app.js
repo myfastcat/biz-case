@@ -115,27 +115,28 @@ class CaseViewer {
       el.classList.toggle('active', el.dataset.id === id);
     });
 
+    // Remove duplicate H1 from content
+    const cleanHtml = caseData.html.replace(/^<h1[^>]*>.*?<\/h1>\s*/i, '');
+
     // Render case detail
     const container = document.getElementById('case-detail');
     container.innerHTML = `
       <div class="case-header">
         <h1 class="case-title">${this.extractProductName(caseData.title)}</h1>
-        <div class="case-tags">
-          ${caseData.tags.map(t => `<span class="case-tag" data-category="${this.getTagCategory(t)}">#${t}</span>`).join('')}
-        </div>
       </div>
       <div class="case-content">
-        ${caseData.html}
+        ${cleanHtml}
       </div>
       <div class="startup-ideas">
         <h2>💡 Startup Ideas</h2>
         <div class="ideas-content" id="ideas-${caseData.id}">
-          <button class="generate-btn" onclick="window.caseViewer.generateIdeas('${caseData.id}')">
-            Generate Startup Ideas
-          </button>
+          <div class="loading">Generating ideas...</div>
         </div>
       </div>
     `;
+
+    // Auto-generate ideas
+    this.generateIdeas(caseData.id);
   }
 
   async generateIdeas(caseId) {
