@@ -1,4 +1,4 @@
-# https://context7.com/
+# context7.com
 Tag: RAG, MCP, Documentation
 
 ## What

@@ -343,6 +343,61 @@ body {
   font-style: italic;
 }
 
+/* Startup Ideas Section */
+.startup-ideas {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.startup-ideas h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.ideas-content {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.generate-btn {
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #a855f7 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.generate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.loading {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.ideas-text {
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.ideas-text strong {
+  color: var(--text-primary);
+}
+
+.ideas-error {
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
