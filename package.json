@@ -1,0 +1,13 @@
+{
+  "name": "ai-product-cases",
+  "version": "1.0.0",
+  "description": "AI Product Case Reference Web Application",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "npx serve dist -p 3000"
+  },
+  "devDependencies": {
+    "marked": "^12.0.0",
+    "gray-matter": "^4.0.3"
+  }
+}

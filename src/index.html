@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Product Case Reference</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>AI Product Case Reference</h1>
+      <p class="subtitle">Curated notes on AI products and their business models</p>
+    </header>
+
+    <div class="container">
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3>Filter by Tag</h3>
+          <div id="tag-filters" class="tag-filters">
+            <!-- Tags will be injected here -->
+          </div>
+          <button id="clear-filters" class="clear-btn" style="display: none;">Clear Filters</button>
+        </div>
+        
+        <div class="sidebar-section">
+          <h3>Products</h3>
+          <nav id="product-list" class="product-list">
+            <!-- Product list will be injected here -->
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div id="case-detail" class="case-detail">
+          <div class="empty-state">
+            <p>Select a product from the sidebar to view details</p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
